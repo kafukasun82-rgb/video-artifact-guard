@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-artifact-guard"
+version = "0.1.0"
+description = "Automated CV quality-control filtering for AI-generated video artifacts (flicker, dark frames, malformed hands)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "opencv-python-headless>=4.8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+]
+
+[tool.setuptools.packages.find]
+include = ["filters*", "pipeline*", "harness*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
